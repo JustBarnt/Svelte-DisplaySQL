@@ -11,6 +11,12 @@
       "sourceType": "module"
     },
     "rules": {
+		"svelte/valid-compile":[
+			"error",
+			{
+				"ignoreWarnings": true
+			}
+		],
         "eqeqeq":"error",
         "arrow-spacing": [
             "warn",
@@ -39,7 +45,7 @@
         ],
         "curly": [
             "error",
-            "multi"
+            "multi-or-nest"
         ],
         "dot-location": [
             "error",
@@ -52,6 +58,7 @@
 			{
 				"SwitchCase": 1,
 				"VariableDeclarator": "first",
+				"MemberExpression": 0,
 				"FunctionDeclaration": {
 					"parameters": "first",
 					"body": 1
@@ -65,6 +72,7 @@
 				}
 			}
         ],
+		"no-unreachable": "warn",
         "max-nested-callbacks": [
             "error",
             {
@@ -93,7 +101,7 @@
             "error",
             "always"
         ],
-        "prefer-const": "warn",
+        "prefer-const": "off",
         "quotes": [
             "error",
             "single",
