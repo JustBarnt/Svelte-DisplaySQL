@@ -17,6 +17,7 @@
 				"ignoreWarnings": true
 			}
 		],
+		"svelte/no-at-debug-tags": "off",
         "eqeqeq":"error",
         "arrow-spacing": [
             "warn",
