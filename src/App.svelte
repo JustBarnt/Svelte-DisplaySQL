@@ -1,25 +1,40 @@
 <script>
-	import GetOrders from './lib/components/GetOrders.svelte';
-	import TableView from './lib/views/TableView.svelte';
+	//Module imports
+	import { HandleQuery } from './scripts/QueryParsingController';
 
-	let tableProps = { show: false, type: '', message: 'Awaiting query results...' };
+	//Component imports
+	import QueryRequests from './components/actions/QueryRequests.svelte';
+	import TableView from './components/views/TableView.svelte';
 
-	function HandleRequest(event)
+	let tableProps = {};
+
+	/**
+	* Manages the properties of the table displaying the query results
+	*
+	* @param {Boolean} show - A boolean value used to show or hide the table/descriptor text
+	* @param {String} type - A string value containing the query method; all, single, submit
+	* @param {String} message - A string value containing a message used for either: Failure, or slow loading.
+	*/
+	function DisplayData(show, type, message)
 	{
-		//const { show, type, message } = event.detail;
-		tableProps = Object.assign(tableProps, event.detail);
-		console.log(tableProps);
+		tableProps = {
+			show: show,
+			type: type,
+			message: message,
+		};
 	}
 </script>
 
 <main>
 	<h1>MSSQL REST API</h1>
-
+	
 	<div id="FormContainer">
-		<GetOrders on:request={HandleRequest}/>
+		<!--TODO: Use slots name='Submit/All/Single' for component controll-->
+		<!--TODO: Create overall component to handle slots for query compontents-->
+		<QueryRequests on:query={(event) => HandleQuery(event, DisplayData)}/>
 	</div>
 	<div id="TableContainer">
-		<TableView bind:show={tableProps.show} bind:type={tableProps.type} bind:message={tableProps.message}/>
+		<TableView bind:show={tableProps.show} bind:message={tableProps.message}/>
 	</div>
 </main>
 
