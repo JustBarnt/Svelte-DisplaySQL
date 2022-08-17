@@ -1,5 +1,5 @@
-import { NewRequest, API_ROUTE } from "./RequestController";
-import { licenses } from "../stores/stores";
+import { SearchRequest, API_ROUTE } from "./RequestController";
+import { apiStore } from "../stores/stores";
 /**
 	* A custom event handler for query retrieval
 	* 
@@ -14,8 +14,8 @@ async function HandleQuery(event, callback)
 	switch (type.toLowerCase())
 	{
 
-		case "single":
-			results = await NewRequest(API_ROUTE, params);
+		case "search":
+			results = await SearchRequest(API_ROUTE, params);
 			success = true;
 			break;
 		
@@ -26,7 +26,7 @@ async function HandleQuery(event, callback)
 			break;
 	}
 
-	licenses.set(results);
+	apiStore.set(results);
 
 	if(!success)
 		throw new Error(message);
