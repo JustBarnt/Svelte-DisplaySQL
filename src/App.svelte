@@ -1,9 +1,13 @@
 <script>
-	//Component imports
-	import TableView from "./views/TableView.svelte";
-	import QueryRequests from "./components/QueryRequests.svelte";
+	//Module Imports
+	import { HandleQuery } from "./scripts/QueryHandler";
+	import { get } from "svelte/store";
+	import { apiStore } from "./stores/stores";
 
-	//NOTE: This is my control for the tableview.
+	//Component imports
+	import QueryRequests from "./components/QueryRequests.svelte";
+	import TableView from "./views/TableView.svelte";
+
 	let tableProps = {};
 
 	/**
@@ -27,7 +31,7 @@
 	<h1>Licensing Web Tool</h1>
 	
 	<div id="FormContainer">
-		<QueryRequests/>
+		<QueryRequests on:query = {(event) => HandleQuery(event, DisplayData)}/>
 	</div>
 	<div id="TableContainer">
 		<TableView bind:show={tableProps.show} bind:message={tableProps.message}/>
