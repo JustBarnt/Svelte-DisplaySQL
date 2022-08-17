@@ -1,30 +1,26 @@
 <script>
-	import { get } from "svelte/store";
-	import { apiStore } from "../stores/stores";
+	import { Utilities } from "../scripts/utils/Utilities";
 
 	export let show = false;
 	export let message = "No queries have been ran.";
-
-	const licenses = get(apiStore);
-
+	export let data = undefined;
 </script>
 
 {#if show}
-	<h3>{message}</h3>
-	{#if licenses !== undefined}
+	{#if data !== undefined}
 		<table id="Licenses">
 			<thead>	
 				<tr>
-					{#each Object.keys(licenses[0]) as Header}
-						<th>{Header}</th>
+					{#each Object.keys(data[0]) as Header}
+						<th>{Utilities.BeautifyHeader(Header)}</th>
 					{/each}
 				</tr>
 			</thead>
 			<tbody>
-				{#each licenses as query}
+				{#each data as query}
 					<tr>
 						{#each Object.values(query) as Values}
-							<td>{Values}</td>
+							<td>{Values === null ? "N\\A" : Values}</td>
 						{/each}
 					</tr>
 				{/each}

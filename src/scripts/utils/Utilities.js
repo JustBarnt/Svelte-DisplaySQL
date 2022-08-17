@@ -1,4 +1,4 @@
-class Utilities
+export class Utilities
 {
 	/**
 	* Creates a Beautified string.
@@ -13,5 +13,3 @@ class Utilities
 	}
 	
 }
-
-export default Utilities;

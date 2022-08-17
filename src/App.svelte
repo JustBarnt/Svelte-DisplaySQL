@@ -8,7 +8,7 @@
 	import QueryRequests from "./components/QueryRequests.svelte";
 	import TableView from "./views/TableView.svelte";
 
-	let tableProps = {};
+	let displayProps = {};
 
 	/**
 	* Manages the properties of the table displaying the query results
@@ -19,10 +19,11 @@
 	*/
 	function DisplayData(show, type, message)
 	{
-		tableProps = {
+		displayProps = {
 			show: show,
 			type: type,
 			message: message,
+			data: get(apiStore),
 		};
 	}
 </script>
@@ -34,7 +35,7 @@
 		<QueryRequests on:query = {(event) => HandleQuery(event, DisplayData)}/>
 	</div>
 	<div id="TableContainer">
-		<TableView bind:show={tableProps.show} bind:message={tableProps.message}/>
+		<TableView bind:show={displayProps.show} bind:message={displayProps.message} bind:data={displayProps.data}/>
 	</div>
 </main>
 
