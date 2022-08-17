@@ -1,5 +1,5 @@
-import { NewRequestAll, NewPost, NewRequest, API_ROUTE } from './RequestController';
-import { queries } from '../stores/stores';
+import { NewRequest, API_ROUTE } from "./RequestController";
+import { licenses } from "../stores/stores";
 /**
 	* A custom event handler for query retrieval
 	* 
@@ -11,20 +11,11 @@ async function HandleQuery(event, callback)
 {
 	let { success, results, type, message, params } = event.detail;
 
-	switch (type.toLowerCase()) //TODO: Single, and Submit cases will be added as well.
+	switch (type.toLowerCase())
 	{
-		case 'all':
-			results = await NewRequestAll(API_ROUTE);
-			success = true;
-			break;
 
-		case 'single':
-			results = await NewRequest(API_ROUTE, params.id);
-			success = true;
-			break;
-
-		case 'submit':
-			results = await NewPost(API_ROUTE, params);
+		case "single":
+			results = await NewRequest(API_ROUTE, params);
 			success = true;
 			break;
 		
@@ -35,7 +26,7 @@ async function HandleQuery(event, callback)
 			break;
 	}
 
-	queries.set(results);
+	licenses.set(results);
 
 	if(!success)
 		throw new Error(message);

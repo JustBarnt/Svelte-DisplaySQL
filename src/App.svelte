@@ -1,11 +1,9 @@
 <script>
-	//Module imports
-	import { HandleQuery } from './scripts/QueryParsingController';
-
 	//Component imports
-	import QueryRequests from './components/actions/QueryRequests.svelte';
-	import TableView from './components/views/TableView.svelte';
+	import TableView from "./views/TableView.svelte";
+	import QueryRequests from "./components/QueryRequests.svelte";
 
+	//NOTE: This is my control for the tableview.
 	let tableProps = {};
 
 	/**
@@ -26,12 +24,10 @@
 </script>
 
 <main>
-	<h1>MSSQL REST API</h1>
+	<h1>Licensing Web Tool</h1>
 	
 	<div id="FormContainer">
-		<!--TODO: Use slots name='Submit/All/Single' for component controll-->
-		<!--TODO: Create overall component to handle slots for query compontents-->
-		<QueryRequests on:query={(event) => HandleQuery(event, DisplayData)}/>
+		<QueryRequests/>
 	</div>
 	<div id="TableContainer">
 		<TableView bind:show={tableProps.show} bind:message={tableProps.message}/>
