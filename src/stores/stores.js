@@ -1,3 +1,3 @@
 import { writable } from "svelte/store";
 
-export const licenses = writable([]);
+export const apiStore = writable([]);
