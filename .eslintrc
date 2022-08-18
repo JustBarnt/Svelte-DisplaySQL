@@ -35,10 +35,7 @@
 			  "after": true
 			}
 		  ],
-		  "curly": [
-			"error",
-			"multi-or-nest"
-		  ],
+		  "curly": "off",
 		  "dot-location": [
 			"error",
 			"property"
@@ -77,6 +74,7 @@
 			  "max": 2
 			}
 		  ],
+		  "no-mixed-spaces-and-tabs": "off",
 		  "no-console": "off",
 		  "no-constant-condition": 1,
 		  "no-empty": "warn",
