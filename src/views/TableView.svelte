@@ -2,7 +2,6 @@
 	import { Utilities } from "../scripts/utils/Utilities";
 
 	export let show = false;
-	export let message = "No queries have been ran.";
 	export let data = undefined;
 </script>
 
@@ -11,16 +10,19 @@
 		<table id="Licenses">
 			<thead>	
 				<tr>
+					<!--TODO: (bwill) Call utility function after succesful response compared to in svelete html
+						TODO: provides better readability-->
 					{#each Object.keys(data[0]) as Header}
-						<th>{Utilities.BeautifyHeader(Header)}</th>
+						<th>{Utilities.FormatColumnHeader(Header)}</th>
 					{/each}
 				</tr>
 			</thead>
 			<tbody>
 				{#each data as query}
 					<tr>
+						<!--TODO: (bwill) Call utility function after succesful response compared to in svelete html-->
 						{#each Object.values(query) as Values}
-							<td>{Values === null ? "N\\A" : Values}</td>
+								<td>{Values === null ? "N \\ A" : Values}</td>
 						{/each}
 					</tr>
 				{/each}
@@ -41,7 +43,7 @@
 	#Licenses thead tr {
 		background-color: #504e4e;
 		color:#fff;
-		text-align: left;
+		text-align: center;
 	}
 
 	#Licenses th, #Licenses td{
