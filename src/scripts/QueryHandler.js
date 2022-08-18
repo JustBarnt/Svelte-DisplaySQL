@@ -1,5 +1,6 @@
 import { SearchRequest, API_ROUTE } from "./RequestController";
 import { apiStore } from "../stores/stores";
+import { Utilities } from "./utils/Utilities";
 /**
 	* A custom event handler for query retrieval
 	* 
@@ -25,6 +26,9 @@ async function HandleQuery(event, callback)
 			success = false;
 			break;
 	}
+
+	Utilities.FormatDateTime(results, "created", "T", " ");
+	Utilities.FormatDateTime(results, "expires", "T", " ");
 
 	apiStore.set(results);
 
