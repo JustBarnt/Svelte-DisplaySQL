@@ -10,8 +10,6 @@
 		<table id="Licenses">
 			<thead>	
 				<tr>
-					<!--TODO: (bwill) Call utility function after succesful response compared to in svelete html
-						TODO: provides better readability-->
 					{#each Object.keys(data[0]) as Header}
 						<th>{Utilities.FormatColumnHeader(Header)}</th>
 					{/each}
@@ -20,7 +18,6 @@
 			<tbody>
 				{#each data as query}
 					<tr>
-						<!--TODO: (bwill) Call utility function after succesful response compared to in svelete html-->
 						{#each Object.values(query) as Values}
 								<td>{Values === null ? "N \\ A" : Values}</td>
 						{/each}
