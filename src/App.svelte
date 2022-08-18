@@ -22,7 +22,6 @@
 		displayProps = {
 			show: show,
 			type: type,
-			message: message,
 			data: get(apiStore),
 		};
 	}
@@ -35,7 +34,7 @@
 		<QueryRequests on:query = {(event) => HandleQuery(event, DisplayData)}/>
 	</div>
 	<div id="TableContainer">
-		<TableView bind:show={displayProps.show} bind:message={displayProps.message} bind:data={displayProps.data}/>
+		<TableView bind:show={displayProps.show} bind:data={displayProps.data}/>
 	</div>
 </main>
 
