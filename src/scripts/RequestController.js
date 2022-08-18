@@ -6,10 +6,9 @@ export const API_ROUTE = API_ENDPOINT += PATH;
 /**
 * Creates a new post request to MSSQL Server
 * @param {String} endpoint - API Endpoint for the request
-8 @param {String} queryString - Parsed query string leading with "?"
+* @param {String} queryString - Parsed query string leading with "?"
 * @return {Promise<any>} Returns a promise containing the JSON response
 */
-
 export const SearchRequest = async(endpoint, queryString) =>
 {
 	const headers = new Headers();
