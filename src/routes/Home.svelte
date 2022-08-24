@@ -9,7 +9,7 @@
 		<input type="text" id="amount" name="Amount" placeholder="Number of responses" value="">
 	
 		<label for="name">With Tag:</label>
-		<input type="text" id="name" name="Tag" placeholder="Tag name" value="">
+		<input type="text" id="name" name="Column" placeholder="Tag name" value="">
 	
 		<label for="value">Tag Value:</label>
 		<input type="text" id="value" name="Value" placeholder="Tag value" value="">
@@ -32,6 +32,21 @@
 	form{
 		display: grid;
 		width:80%;
+		border: 0.25rem solid #24242450;
+		border-radius: 1rem;
+		background-color: var(--headerBG);
+		box-shadow: 0 0 0.5rem 0.5rem #12121250;
+		padding: 1rem 1rem;
+		transition: border-color 0.25s, box-shadow 0.25s;
+	}
+
+	form:hover{
+		border-color: var(--buttonBorder);
+		box-shadow: 0 0 0.5rem 0.5rem #646cff50;
+	}
+
+	form:focus{
+		outline: 0.4rem auto -webkit-focus-ring-color;
 	}
 	
 	input{
