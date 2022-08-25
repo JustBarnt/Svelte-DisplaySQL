@@ -7,7 +7,7 @@ import { Utilities } from "../scripts/utilities/Utilities";
 	const tablePKs = [];
 	let activeRow = 0;
 		
-	onMount(() => 
+	onMount( () => 
 	{
 		if(data !== undefined)
 		{
@@ -28,8 +28,8 @@ import { Utilities } from "../scripts/utilities/Utilities";
 	function HandleLicenseSelect(event)
 	{
 		activeRow = GetRowNum(event.currentTarget);
-		const form = CreateInputForm.Form("LicenseForm", "licenseForm", "/license", "GET");
-		const input = CreateInputForm.Input("text", "selector", tablePKs[activeRow]);
+		let form = CreateInputForm.Form("LicenseForm", "licenseForm", "/license", "GET");
+		let input = CreateInputForm.Input("text", "selector", tablePKs[activeRow]);
 		form.append(input);
 		document.getElementById("TableContainer").append(form);
 
