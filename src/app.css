@@ -3,7 +3,8 @@
 	--headerHeight: 5.5rem;
 	--headerContentPadding: 1.75rem 1.25rem;
 	--contentPadding: 4.5rem;
-	--mainBG: #242424;
+	--mainBG: #282828;
+	--mainBG2: #404040;
 	--headerBG: #303030;
 	--buttonBG: #1a1a1a;
 	--buttonBorder: #646cff;
@@ -16,7 +17,7 @@
 
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
-	background-color: var(--mainBG);
+	background-image: linear-gradient(to bottom right, #404040, #282828);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;

@@ -11,13 +11,6 @@
       "sourceType": "module"
     },
     "rules": {
-		"svelte/valid-compile":[
-			"error",
-			{
-				"ignoreWarnings": true
-			}
-		],
-		"svelte/no-at-debug-tags": "off",
         "eqeqeq":"error",
         "arrow-spacing": [
             "warn",
@@ -54,26 +47,27 @@
         ],
         "handle-callback-err": "off",
         "indent": [
-            "warn",
-            "tab",
+			"warn",
+			"tab",
 			{
-				"SwitchCase": 1,
-				"VariableDeclarator": "first",
-				"MemberExpression": 0,
-				"FunctionDeclaration": {
-					"parameters": "first",
-					"body": 1
-				},
-				"FunctionExpression": {
-					"parameters": "first",
-					"body": 1
-				},
-				"CallExpression": {
-					"arguments": 0
-				}
+			  "CallExpression": {
+				"arguments": "off"
+			  },
+			  "FunctionDeclaration": {
+				"body": 1,
+				"parameters": "first"
+			  },
+			  "FunctionExpression": {
+				"body": 1,
+				"parameters": "first"
+			  },
+			  "ArrayExpression": "first",
+			  "ObjectExpression": "off",
+			  "MemberExpression": 0,
+			  "SwitchCase": 1,
+			  "VariableDeclarator": "first"
 			}
-        ],
-		"no-unreachable": "warn",
+		  ],
         "max-nested-callbacks": [
             "error",
             {
@@ -102,10 +96,10 @@
             "error",
             "always"
         ],
-        "prefer-const": "off",
+        "prefer-const": "warn",
         "quotes": [
             "error",
-            "single",
+            "double",
             {
                 "allowTemplateLiterals":true
             }

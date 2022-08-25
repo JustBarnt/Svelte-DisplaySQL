@@ -1,5 +1,5 @@
 <script>
-	const formValues = { amount: "10", column: "createdby", value: "joshr", startDate:"", endDate:"" };
+		const formValues = { amount: "10", column: "createdby", value: "joshr", startDate:"", endDate:"" };
 </script>
 
 <div id="container">
